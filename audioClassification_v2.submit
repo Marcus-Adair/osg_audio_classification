@@ -1,0 +1,40 @@
+# Author: Marcus Adair, University of Utah 2024 
+#
+# Purpose: This file organized the input of a single job to classify 
+# audio via YAMNet for 1 audio file.
+# ---------------------------------------------------:
+universe = vanilla
+
+
++SingularityImage = "osdf:///ospool/ap21/data/marcus_adair/sing_image_yamnet_v1.sif"
+
+
+# File that runs on the node
+executable = audioClass_exe_v2.sh
+
+# specifies arguments to be passed to the executable
+#arguments = 
+
+
+
+# Transfer in an audio file
+transfer_input_files = DATA/$(dataset)/$(audioFilename)
+
+
+when_to_transfer_output = ON_EXIT
+
+# output log files
+output = audioClassification_$(jobNum).out
+error  = audioClassification_$(jobNum).error
+log    = audioClassification_$(jobNum).log
+
+
+#+has_mpi = true
+
+# request resources on node
+request_cpus	= 1
+request_memory	= 8GB
+request_disk	= 8GB
+
+# run once
+queue 1
