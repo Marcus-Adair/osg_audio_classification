@@ -12,9 +12,8 @@ universe = vanilla
 # File that runs on the node
 executable = audioClass_exe_v2.sh
 
-# specifies arguments to be passed to the executable
-#arguments = 
-
+# specifies arguments to be passed to the executable, pass in name of audio file to classify
+arguments = $(audioFilename) 
 
 
 # Transfer in an audio file
@@ -24,9 +23,9 @@ transfer_input_files = DATA/$(dataset)/$(audioFilename)
 when_to_transfer_output = ON_EXIT
 
 # output log files
-output = audioClassification_$(jobNum).out
-error  = audioClassification_$(jobNum).error
-log    = audioClassification_$(jobNum).log
+output = audio_classification_job_$(jobNum).out
+error  = audio_classification_job_$(jobNum).error
+log    = audio_classification_job_$(jobNum).log
 
 
 #+has_mpi = true
