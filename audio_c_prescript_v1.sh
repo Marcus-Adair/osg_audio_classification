@@ -4,8 +4,9 @@
 # ----------------------------------------------
 
 # Get passed in Vars
-#dataset=$1
-dataset="miaow_dataset_100"
+dataset=$1
+#dataset="miaow_dataset_10"
+
 
 
 # Check if dataset folder exists
@@ -37,7 +38,7 @@ for file in "./DATA/$dataset"/*; do
 
     # TODO: add postSciptN for managing output?
    
-    i+=1
+    ((i+=1))
 done
 
 
